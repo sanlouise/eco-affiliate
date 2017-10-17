@@ -5,10 +5,11 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import registerServiceWorker from './registerServiceWorker';
 
 // Components
+import About from './components/About';
 import App from './containers/App';
 import BaseLayout from './components/BaseLayout';
-import NavBar from './containers/NavBar';
 import Footer from './components/Footer';
+import NavBar from './containers/NavBar';
 
 // Styles
 import './globalStyles.css';
@@ -18,7 +19,8 @@ ReactDOM.render((
     <BaseLayout>
       <NavBar>
         <Switch>
-          <Route path="/" component={App}/>
+          <Route exact path="/" component={App}/>
+          <Route path="/about" component={About}/>
         </Switch>
       </NavBar>
       <Footer />
