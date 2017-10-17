@@ -1,8 +1,28 @@
+// Dependencies
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './containers/App';
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+// Components
+import App from './containers/App';
+import BaseLayout from './components/BaseLayout';
+import NavBar from './containers/NavBar';
+import Footer from './components/Footer';
+
+// Styles
+import './globalStyles.css';
+
+ReactDOM.render((
+  <BrowserRouter>
+    <BaseLayout>
+      <NavBar>
+        <Switch>
+          <Route path="/" component={App}/>
+        </Switch>
+      </NavBar>
+      <Footer />
+    </BaseLayout>
+  </BrowserRouter>
+), document.getElementById('root'));
 registerServiceWorker();
